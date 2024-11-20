@@ -1,0 +1,21 @@
+apiVersion: kubedb.com/v1
+kind: MySQL
+metadata:
+  name: my-group
+  namespace: demo
+spec:
+  version: "8.0.35"
+  replicas: 3
+  topology:
+    mode: GroupReplication
+    group:
+      mode: Single-Primary
+      name: 3daf1259-73c8-4d75-bffc-ea9ea47bb992
+  storageType: Durable
+  storage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+  deletionPolicy: WipeOut
