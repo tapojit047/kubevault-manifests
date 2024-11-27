@@ -8,7 +8,8 @@ spec:
     namespaces:
       from: All
     secretEngines:
-      - mysql
+#      - mysql
+      - redis
   version: 1.12.1
   replicas: 3
   backend:
