@@ -7,9 +7,9 @@ spec:
   allowedSecretEngines:
     namespaces:
       from: All
-    secretEngines:
+#    secretEngines:
 #      - mysql
-      - redis
+#      - redis
   version: 1.12.1
   replicas: 3
   backend:
