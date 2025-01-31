@@ -2,7 +2,7 @@ apiVersion: kubevault.com/v1alpha2
 kind: VaultServer
 metadata:
   name: vault
-  namespace: demo
+  namespace: demo-1
 spec:
   allowedSecretEngines:
     namespaces:
