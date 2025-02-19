@@ -15,7 +15,7 @@ spec:
   exporter:
     image: ghcr.io/kubevault/vault-exporter:v0.1.1
   initContainer:
-    image: busybox:latest
+    image: alpine
   stash:
     addon:
       backupTask:

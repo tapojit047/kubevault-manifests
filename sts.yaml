@@ -1,0 +1,200 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: "2025-02-19T09:04:04Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/instance: vault
+    app.kubernetes.io/managed-by: kubevault.com
+    app.kubernetes.io/name: vaultservers.kubevault.com
+  name: vault
+  namespace: demo
+  ownerReferences:
+  - apiVersion: kubevault.com/v1alpha2
+    blockOwnerDeletion: true
+    controller: true
+    kind: VaultServer
+    name: vault
+    uid: 11b8b151-6bc5-476b-b36b-d552ab5dbea2
+  resourceVersion: "211723"
+  uid: faee829b-dd1c-4514-ab08-d83425aeedf4
+spec:
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  podManagementPolicy: OrderedReady
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/managed-by: kubevault.com
+      app.kubernetes.io/name: vaultservers.kubevault.com
+  serviceName: vault-internal
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: vault
+        app.kubernetes.io/managed-by: kubevault.com
+        app.kubernetes.io/name: vaultservers.kubevault.com
+    spec:
+      containers:
+      - command:
+        - /bin/vault
+        - server
+        - -config=/etc/vault/config/vault.hcl
+        env:
+        - name: HOSTNAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        - name: VAULT_API_ADDR
+          value: https://vault.demo.svc:8200
+        - name: VAULT_CLUSTER_ADDR
+          value: https://vault.demo.svc:8201
+        image: vault:1.12.1
+        imagePullPolicy: IfNotPresent
+        name: vault
+        ports:
+        - containerPort: 8200
+          name: vault-port
+          protocol: TCP
+        - containerPort: 8201
+          name: cluster-port
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /v1/sys/health?standbyok=true&perfstandbyok=true
+            port: 8200
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources:
+          requests:
+            memory: "2Gi"
+          limits:
+            memory: "2Gi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - IPC_LOCK
+            drop:
+            - ALL
+          runAsGroup: 0
+          runAsNonRoot: true
+          runAsUser: 1000670000
+          seccompProfile:
+            type: RuntimeDefault
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/vault/config
+          name: config
+      - args:
+        - run
+        - --v=3
+        - --secret-shares=5
+        - --secret-threshold=3
+        - --key-prefix=k8s.kubevault.com.demo.vault
+        - --cluster-name=kubevault.com
+        - --vault.address=http://127.0.0.1:8200
+        - --auth.k8s-host=https://10.96.0.1:443
+        - |
+          --auth.k8s-ca-cert=-----BEGIN CERTIFICATE-----
+          MIIDBTCCAe2gAwIBAgIICMPgoM+QLmswDQYJKoZIhvcNAQELBQAwFTETMBEGA1UE
+          AxMKa3ViZXJuZXRlczAeFw0yNTAyMTMwNjA3MzNaFw0zNTAyMTEwNjEyMzNaMBUx
+          EzARBgNVBAMTCmt1YmVybmV0ZXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+          AoIBAQC4s34/Qx+mke8J1D3iWLiFOYUp+BxE3K+0xUltqthribNn3ShQTKx/N+6M
+          Odl0aQtv9Y5A+swodfVKAKPrxWGYq4X4vRlq7NTM+4iYclmCXsKbx0KfSAgggI+j
+          UTI3GJ8KCUc7rha2kR1beXaRhKNEucUQgGRcJ1D5ew0ZwxdWEUG+7AqF2WitsYmV
+          s+jLo5n4nrt3X1/gREM10X+OzNlk6YhSKhc501d+li7mRgkJ3Ce4hCLoeKga5TB7
+          fgLfbnj3A4vCVQM6Ru3maXwzd79BkmhiSe0helTekHErvLGjEN10TVQ5ogb35Nmp
+          rfyZtIs9Ejzez2lGWp/Mu11kzRIrAgMBAAGjWTBXMA4GA1UdDwEB/wQEAwICpDAP
+          BgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBQMVtgvg4Ij5KTcV9tcGzxfN0zDpTAV
+          BgNVHREEDjAMggprdWJlcm5ldGVzMA0GCSqGSIb3DQEBCwUAA4IBAQCpHvUmnHCC
+          zj6AA/DkbnY4MVnmtr9dfXUd7r3nkbvuucdaw6VQlrmgEoVuRmqZkW+OhhAdmViI
+          SLkmFFl7DAiBRia8RjMUQ8Us6eOTkT5CPeGT1xivQc4J6fvvfL8Lircn4d3CBe0B
+          v3Trvrj+ByQb7gkHU4ycS4+p4JdOqaDMIqymnimQ5hq6ig2mg9avowWZImJHu9UN
+          gyccA47wl05QCapPqIiXK7QrPpUszDzKMu/IPVj6T5+wplo9NS9IWDcJiuEQWe+o
+          /IxZvObmBVOF8Bjzv4ZLrovZunh5k2QWIDicrGIAHiecvlcD77R/3ggq3a6KDgEM
+          mtpSwj9Zxwd1
+          -----END CERTIFICATE-----
+        - --policy-manager.name=vault-policy-controller
+        - --policy-manager.service-account-name=vault
+        - --policy-manager.service-account-namespace=demo
+        - --use-kubeapiserver-fqdn-for-aks=true
+        - --mode=kubernetes-secret
+        - --k8s.secret-name=vault-keys
+        env:
+        - name: K8S_TOKEN_REVIEWER_JWT
+          valueFrom:
+            secretKeyRef:
+              key: token
+              name: vault-k8s-token-reviewer-token-9df99t
+        image: kubevault/vault-unsealer:v0.19.0
+        imagePullPolicy: IfNotPresent
+        name: vault-unsealer
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - args:
+        - -c
+        - "set -e\n\t\t\tcat /etc/vault/controller/vault.hcl > /etc/vault/config/vault.hcl\n\t\t\techo
+          \"\" >> /etc/vault/config/vault.hcl\n\t\t\tif [ -f /etc/vault/user/vault.hcl
+          ]; then\n\t\t\t\t  cat /etc/vault/user/vault.hcl >> /etc/vault/config/vault.hcl\n\t\t\tfi\n\t\t\t"
+        command:
+        - /bin/sh
+        image: busybox
+        imagePullPolicy: Always
+        name: vault-config
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/vault/config
+          name: config
+        - mountPath: /etc/vault/controller
+          name: controller-config
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 1000670000
+      serviceAccount: vault
+      serviceAccountName: vault
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: config
+      - name: controller-config
+        secret:
+          defaultMode: 420
+          secretName: vault-vault-config
+  updateStrategy:
+    type: OnDelete
+status:
+  availableReplicas: 0
+  collisionCount: 0
+  currentReplicas: 1
+  currentRevision: vault-7d4df9f9ff
+  observedGeneration: 1
+  replicas: 1
+  updateRevision: vault-7d4df9f9ff
+  updatedReplicas: 1

@@ -2,14 +2,11 @@ apiVersion: kubevault.com/v1alpha2
 kind: VaultServer
 metadata:
   name: vault
-  namespace: demo-1
+  namespace: demo
 spec:
   allowedSecretEngines:
     namespaces:
       from: All
-#    secretEngines:
-#      - mysql
-#      - redis
   version: 1.12.1
   replicas: 3
   backend:
