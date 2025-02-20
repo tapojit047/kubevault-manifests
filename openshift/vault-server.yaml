@@ -7,16 +7,14 @@ spec:
   allowedSecretEngines:
     namespaces:
       from: All
-  version: 1.12.1
+  version: 1.18.4
   replicas: 3
   backend:
     raft:
       storage:
-        storageClassName: "standard"
         resources:
           requests:
             storage: 1Gi
-#      inmem: {}
   unsealer:
     secretShares: 5
     secretThreshold: 3
@@ -26,7 +24,7 @@ spec:
   podTemplate:
     spec:
       securityContext:
-        fsGroup: 1000670000
+        fsGroup: 1000660000
       containerSecurityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -36,7 +34,7 @@ spec:
             - "IPC_LOCK"
         runAsGroup: 0
         runAsNonRoot: true
-        runAsUser: 1000670000
+        runAsUser: 1000660000
         seccompProfile:
           type: RuntimeDefault
       initContainers:
@@ -46,10 +44,8 @@ spec:
             capabilities:
               drop:
                 - ALL
-              add:
-                - "IPC_LOCK"
             runAsGroup: 0
             runAsNonRoot: true
-            runAsUser: 1000670000
+            runAsUser: 1000660000
             seccompProfile:
               type: RuntimeDefault

@@ -1,0 +1,29 @@
+apiVersion: catalog.kubevault.com/v1alpha1
+kind: VaultServerVersion
+metadata:
+  annotations:
+    meta.helm.sh/release-name: kubevault-catalog
+    meta.helm.sh/release-namespace: kubevault
+  labels:
+    app.kubernetes.io/instance: kubevault-catalog
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: kubevault-catalog
+    app.kubernetes.io/version: v2025.2.10
+    helm.sh/chart: kubevault-catalog-v2025.2.10
+  name: 1.18.4
+spec:
+  exporter:
+    image: ghcr.io/kubevault/vault-exporter:v0.1.1
+  initContainer:
+    image: busybox
+  stash:
+    addon:
+      backupTask:
+        name: vault-backup-1.10.3
+      restoreTask:
+        name: vault-restore-1.10.3
+  unsealer:
+    image: kubevault/vault-unsealer:v0.20.0
+  vault:
+    image: ghcr.io/appscode-images/vault:1.18.4
+  version: 1.18.4
