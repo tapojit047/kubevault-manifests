@@ -1,9 +1,9 @@
 apiVersion: virtual-secrets.dev/v1alpha1
 kind: Secret
 metadata:
-  name: secret-2
+  name: pg-demo-auth
   namespace: demo
 stringData:
   username: tapojit
-  password: xoxo
+  password: paul
 secretSource: vault

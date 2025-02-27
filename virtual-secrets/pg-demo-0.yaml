@@ -1,0 +1,456 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-03-07T12:18:41Z"
+  generateName: pg-demo-
+  labels:
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: pg-demo
+    app.kubernetes.io/managed-by: kubedb.com
+    app.kubernetes.io/name: postgreses.kubedb.com
+    apps.kubernetes.io/pod-index: "0"
+    controller-revision-hash: pg-demo-76c587fc9d
+    kubedb.com/role: primary
+    statefulset.kubernetes.io/pod-name: pg-demo-0
+  name: pg-demo-0
+  namespace: demo
+  ownerReferences:
+  - apiVersion: apps.k8s.appscode.com/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: PetSet
+    name: pg-demo
+    uid: 213a7331-005f-466d-bdff-c78774ece3c6
+  resourceVersion: "426137"
+  uid: 15a9d7db-e4ed-4318-90ef-cca27c804f43
+spec:
+  affinity:
+    podAntiAffinity: {}
+  containers:
+  - args:
+    - /scripts/tini
+    - --
+    - /scripts/run.sh
+    command:
+    - /etc/virtual-secrets/venv
+    env:
+    - name: NAMESPACE
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.namespace
+    - name: PRIMARY_HOST
+      value: pg-demo
+    - name: MAX_LAG_BEFORE_FAILOVER
+      value: "67108864"
+    - name: SHARED_BUFFERS
+      value: 262144kB
+    - name: PG_VERSION
+      value: "13.13"
+    - name: MAJOR_PG_VERSION
+      value: "13"
+    - name: CLIENT_AUTH_MODE
+      value: md5
+    - name: PV
+      value: /var/pv
+    - name: DB_UID
+      value: "70"
+    - name: DB_GID
+      value: "70"
+    - name: PGDATA
+      value: /var/pv/data
+    - name: INITDB
+      value: /var/initdb
+    - name: SSL_MODE
+      value: disable
+    - name: REPLICAS
+      value: "3"
+    - name: WAL_BACKUP_TYPE
+    - name: STANDBY
+      value: hot
+    - name: STREAMING
+      value: asynchronous
+    - name: WAL_RETAIN_AMOUNT
+      value: "1536"
+    - name: WAL_RETAIN_PARAM
+      value: wal_keep_size
+    - name: WAL_LIMIT_POLICY
+      value: WALKeepSize
+    - name: SSL
+      value: "OFF"
+    - name: POSTGRES_USER
+      value: vs:///etc/virtual-secrets/username
+    - name: POSTGRES_PASSWORD
+      value: vs:///etc/virtual-secrets/password
+    image: ghcr.io/appscode-images/postgres:13.13-alpine@sha256:110b730c7914aa7ac930ff6e44088845014a9b7b6985f436cbc6c2e06f3021db
+    imagePullPolicy: IfNotPresent
+    lifecycle:
+      preStop:
+        exec:
+          command:
+          - pg_ctl
+          - -m
+          - fast
+          - -w
+          - stop
+    name: postgres
+    ports:
+    - containerPort: 5432
+      name: db
+      protocol: TCP
+    resources:
+      limits:
+        memory: 1Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      runAsGroup: 70
+      runAsNonRoot: true
+      runAsUser: 70
+      seccompProfile:
+        type: RuntimeDefault
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /dev/shm
+      name: shared-memory
+    - mountPath: /var/pv
+      name: data
+    - mountPath: /run_scripts
+      name: run-scripts
+    - mountPath: /scripts
+      name: scripts
+    - mountPath: /etc/virtual-secrets
+      name: virtual-secrets
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-28lxv
+      readOnly: true
+  - args:
+    - ./pg-coordinator
+    command:
+    - /etc/virtual-secrets/venv
+    env:
+    - name: NAMESPACE
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.namespace
+    - name: PRIMARY_HOST
+      value: pg-demo
+    - name: MAX_LAG_BEFORE_FAILOVER
+      value: "67108864"
+    - name: PERIOD
+      value: 300ms
+    - name: ELECTION_TICK
+      value: "10"
+    - name: HEARTBEAT_TICK
+      value: "1"
+    - name: TRANSFER_LEADERSHIP_TIMEOUT
+      value: 1m0s
+    - name: TRANSFER_LEADERSHIP_INTERVAL
+      value: 1s
+    - name: MAJOR_PG_VERSION
+      value: "13"
+    - name: CLIENT_AUTH_MODE
+      value: md5
+    - name: SSL_MODE
+      value: disable
+    - name: WAL_RETAIN_AMOUNT
+      value: "1536"
+    - name: WAL_RETAIN_PARAM
+      value: wal_keep_size
+    - name: WAL_LIMIT_POLICY
+      value: WALKeepSize
+    - name: SSL
+      value: "OFF"
+    - name: POSTGRES_USER
+      value: vs:///etc/virtual-secrets/username
+    - name: POSTGRES_PASSWORD
+      value: vs:///etc/virtual-secrets/password
+    image: tapojit047/pg-coordinator:v0.36.0_linux_amd64@sha256:cde156cb803b36fb98563e1532236d70769987353f925da0236a1225de3e0eac
+    imagePullPolicy: IfNotPresent
+    name: pg-coordinator
+    ports:
+    - containerPort: 2380
+      name: coordinator
+      protocol: TCP
+    - containerPort: 2379
+      name: coordinatclient
+      protocol: TCP
+    - containerPort: 23790
+      name: raft-metrics
+      protocol: TCP
+    resources:
+      limits:
+        memory: 256Mi
+      requests:
+        cpu: 200m
+        memory: 256Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      runAsGroup: 70
+      runAsNonRoot: true
+      runAsUser: 70
+      seccompProfile:
+        type: RuntimeDefault
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/pv
+      name: data
+    - mountPath: /run_scripts
+      name: run-scripts
+    - mountPath: /role_scripts
+      name: role-scripts
+    - mountPath: /etc/virtual-secrets
+      name: virtual-secrets
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-28lxv
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  hostname: pg-demo-0
+  initContainers:
+  - env:
+    - name: STANDALONE
+      value: "false"
+    - name: REMOTE_REPLICA
+      value: "false"
+    - name: SOURCE_SSL
+      value: "OFF"
+    - name: SOURCE_SSL_MODE
+      value: disable
+    - name: MAJOR_PG_VERSION
+      value: "13"
+    - name: SSL
+      value: "OFF"
+    image: ghcr.io/kubedb/postgres-init:0.17.1@sha256:3a0f7ea9b1e7103d145cc5ffaafae181c9be2df832c2275d03e6e039280f1ae0
+    imagePullPolicy: IfNotPresent
+    name: postgres-init-container
+    resources:
+      limits:
+        memory: 512Mi
+      requests:
+        cpu: 200m
+        memory: 256Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      runAsGroup: 70
+      runAsNonRoot: true
+      runAsUser: 70
+      seccompProfile:
+        type: RuntimeDefault
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/pv
+      name: data
+    - mountPath: /run_scripts
+      name: run-scripts
+    - mountPath: /scripts
+      name: scripts
+    - mountPath: /role_scripts
+      name: role-scripts
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-28lxv
+      readOnly: true
+  nodeName: kind-control-plane
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 70
+    runAsGroup: 70
+    runAsUser: 70
+  serviceAccount: pg-demo
+  serviceAccountName: pg-demo
+  subdomain: pg-demo-pods
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  topologySpreadConstraints:
+  - labelSelector:
+      matchLabels:
+        app.kubernetes.io/component: database
+        app.kubernetes.io/instance: pg-demo
+        app.kubernetes.io/managed-by: kubedb.com
+        app.kubernetes.io/name: postgreses.kubedb.com
+    maxSkew: 1
+    topologyKey: topology.kubernetes.io/zone
+    whenUnsatisfiable: ScheduleAnyway
+  - labelSelector:
+      matchLabels:
+        app.kubernetes.io/component: database
+        app.kubernetes.io/instance: pg-demo
+        app.kubernetes.io/managed-by: kubedb.com
+        app.kubernetes.io/name: postgreses.kubedb.com
+    maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfiable: ScheduleAnyway
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: data-pg-demo-0
+  - emptyDir: {}
+    name: role-scripts
+  - emptyDir: {}
+    name: run-scripts
+  - emptyDir: {}
+    name: scripts
+  - emptyDir:
+      medium: Memory
+    name: shared-memory
+  - csi:
+      driver: secrets-store.csi.k8s.io
+      readOnly: true
+      volumeAttributes:
+        secretProviderClass: pg-demo-auth
+    name: virtual-secrets
+  - name: kube-api-access-28lxv
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-07T12:18:44Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-07T12:18:45Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-07T12:18:46Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-07T12:18:46Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-03-07T12:18:44Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://c55ec431a7139e9156e84afdcebefaaa51850dcd6898c0e76c3aad3e0c3575d3
+    image: docker.io/tapojit047/pg-coordinator:v0.36.0_linux_amd64
+    imageID: docker.io/library/import-2025-03-06@sha256:6a7cb9acd31f095b6a54e5ee1fe90267b6d498909fa8a886395e90575ee40b54
+    lastState: {}
+    name: pg-coordinator
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2025-03-07T12:18:46Z"
+    volumeMounts:
+    - mountPath: /var/pv
+      name: data
+    - mountPath: /run_scripts
+      name: run-scripts
+    - mountPath: /role_scripts
+      name: role-scripts
+    - mountPath: /etc/virtual-secrets
+      name: virtual-secrets
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-28lxv
+      readOnly: true
+      recursiveReadOnly: Disabled
+  - containerID: containerd://8d6f43c4ec9c87e877798fc5857f7ea7e9f12dc60cafd4f0839f38538c99f057
+    image: sha256:48069d55b39cc405ad50f6f4ee5f45f177325ca225ba45714e468e77ad50bdc9
+    imageID: ghcr.io/appscode-images/postgres@sha256:110b730c7914aa7ac930ff6e44088845014a9b7b6985f436cbc6c2e06f3021db
+    lastState: {}
+    name: postgres
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2025-03-07T12:18:46Z"
+    volumeMounts:
+    - mountPath: /dev/shm
+      name: shared-memory
+    - mountPath: /var/pv
+      name: data
+    - mountPath: /run_scripts
+      name: run-scripts
+    - mountPath: /scripts
+      name: scripts
+    - mountPath: /etc/virtual-secrets
+      name: virtual-secrets
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-28lxv
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 172.18.0.2
+  hostIPs:
+  - ip: 172.18.0.2
+  initContainerStatuses:
+  - containerID: containerd://d72fb0d454adf7665a3f3109c0ece6c31a9a4042a754e0d5d7f34885585bc6f8
+    image: sha256:4a4126232f60ab34e73567249c66fb2b10d1ba97ff609b9c833a31e6b548b006
+    imageID: ghcr.io/kubedb/postgres-init@sha256:3a0f7ea9b1e7103d145cc5ffaafae181c9be2df832c2275d03e6e039280f1ae0
+    lastState: {}
+    name: postgres-init-container
+    ready: true
+    restartCount: 0
+    started: false
+    state:
+      terminated:
+        containerID: containerd://d72fb0d454adf7665a3f3109c0ece6c31a9a4042a754e0d5d7f34885585bc6f8
+        exitCode: 0
+        finishedAt: "2025-03-07T12:18:44Z"
+        reason: Completed
+        startedAt: "2025-03-07T12:18:44Z"
+    volumeMounts:
+    - mountPath: /var/pv
+      name: data
+    - mountPath: /run_scripts
+      name: run-scripts
+    - mountPath: /scripts
+      name: scripts
+    - mountPath: /role_scripts
+      name: role-scripts
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-28lxv
+      readOnly: true
+      recursiveReadOnly: Disabled
+  phase: Running
+  podIP: 10.244.0.3
+  podIPs:
+  - ip: 10.244.0.3
+  qosClass: Burstable
+  startTime: "2025-03-07T12:18:44Z"
