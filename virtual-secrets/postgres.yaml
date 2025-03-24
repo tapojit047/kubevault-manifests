@@ -5,8 +5,8 @@ metadata:
   namespace: demo
 spec:
   authSecret:
-    group: "virtual-secrets.dev"
-    secretSource: vault
+    apiGroup: "virtual-secrets.dev"
+    secretStoreName: vault
   replicas: 3
   storage:
     accessModes:
@@ -14,7 +14,6 @@ spec:
     resources:
       requests:
         storage: 1Gi
-    storageClassName: standard
   storageType: Durable
   deletionPolicy: Delete
   version: "13.13"
