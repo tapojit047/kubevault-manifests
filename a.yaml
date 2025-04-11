@@ -1,0 +1,93 @@
+apiVersion: kubedb.com/v1alpha2
+kind: Cassandra
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"kubedb.com/v1alpha2","kind":"Cassandra","metadata":{"annotations":{},"name":"cass","namespace":"default"},"spec":{"deletionPolicy":"WipeOut","monitor":{"agent":"prometheus.io/operator","prometheus":{"serviceMonitor":{"interval":"10s","labels":{"release":"prometheus"}}}},"topology":{"rack":[{"name":"r0","podTemplate":{"spec":{"containers":[{"name":"cassandra","resources":{"limits":{"cpu":2,"memory":"2Gi"},"requests":{"cpu":1,"memory":"1Gi"}}}],"securityContext":{"fsGroup":999,"runAsUser":999}}},"replicas":2,"storage":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}]},"version":"4.1.6"}}
+  creationTimestamp: "2025-03-20T06:17:05Z"
+  finalizers:
+    - kubedb.com/cassandra
+  generation: 3
+  name: cass
+  namespace: default
+  resourceVersion: "15863"
+  uid: 2a0eb0f4-3d47-4693-b3b3-2d3dfd0880a0
+spec:
+  authSecret:
+    name: cass-auth
+  deletionPolicy: WipeOut
+  healthChecker:
+    failureThreshold: 3
+    periodSeconds: 20
+    timeoutSeconds: 10
+  monitor:
+    agent: prometheus.io/operator
+    prometheus:
+      exporter:
+        port: 56790
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          runAsGroup: 999
+          runAsNonRoot: true
+          runAsUser: 999
+          seccompProfile:
+            type: RuntimeDefault
+      serviceMonitor:
+        interval: 10s
+        labels:
+          release: prometheus
+  topology:
+    rack:
+      - name: r0
+        podTemplate:
+          controller: {}
+          metadata: {}
+          spec:
+            containers:
+              - name: cassandra
+                resources:
+                  limits:
+                    cpu: "2"
+                    memory: 2Gi
+                  requests:
+                    cpu: "1"
+                    memory: 1Gi
+                securityContext:
+                  allowPrivilegeEscalation: false
+                  capabilities:
+                    drop:
+                      - ALL
+                  runAsNonRoot: true
+                  runAsUser: 999
+                  seccompProfile:
+                    type: RuntimeDefault
+            initContainers:
+              - name: cassandra-init
+                resources: {}
+                securityContext:
+                  allowPrivilegeEscalation: false
+                  capabilities:
+                    drop:
+                      - ALL
+                  runAsNonRoot: true
+                  runAsUser: 999
+                  seccompProfile:
+                    type: RuntimeDefault
+            podPlacementPolicy:
+              name: default
+            securityContext:
+              fsGroup: 999
+              runAsUser: 999
+        replicas: 2
+        storage:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+        storageType: Durable
+  version: 4.1.6

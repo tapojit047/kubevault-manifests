@@ -22,3 +22,4 @@ spec:
     mode:
       kubernetesSecret:
         secretName: vault-keys
+  terminationPolicy: WipeOut
