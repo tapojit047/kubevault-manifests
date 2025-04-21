@@ -4,9 +4,9 @@ metadata:
   name: pg-demo
   namespace: demo
 spec:
- authSecret:
-   apiGroup: "virtual-secrets.dev"
-   secretStoreName: vault
+  authSecret:
+    apiGroup: "virtual-secrets.dev"
+    secretStoreName: aws
   replicas: 3
   storage:
     accessModes:
