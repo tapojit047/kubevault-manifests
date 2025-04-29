@@ -1,0 +1,43 @@
+#---
+# Source: protean-vault/templates/vaultserver.yaml
+# yamllint disable rule:braces
+apiVersion: kubevault.com/v1alpha2
+kind: VaultServer
+metadata:
+  name: vault
+  namespace: k8s-pki
+  labels:
+    APP: vault
+spec:
+
+  version: 1.13.3
+  replicas: 1
+  backend:
+    raft:
+      storage:
+        # storageClassName: nfs-client
+        resources:
+          requests:
+            storage: 1Gi
+
+  unsealer:
+    secretShares: 5
+    secretThreshold: 3
+    mode:
+      kubernetesSecret:
+        secretName: vault-keys
+
+
+  monitor:
+    agent: prometheus.io/operator
+    prometheus:
+      exporter:
+      exporter:
+        resources: {}
+      serviceMonitor:
+        labels:
+          release: protean-monitoring
+          app: vault
+
+  terminationPolicy: DoNotTerminate
+

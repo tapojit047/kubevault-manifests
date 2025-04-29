@@ -1,0 +1,57 @@
+NAME                                                        TYPE                 DATA   AGE
+secret/cert-manager-approver-policy-tls                     Opaque               3      149m
+secret/cert-manager-webhook-ca                              Opaque               3      148m
+secret/kubevault-operator-license                           Opaque               1      142m
+secret/sh.helm.release.v1.cert-manager-approver-policy.v1   helm.sh/release.v1   1      149m
+secret/sh.helm.release.v1.cert-manager.v1                   helm.sh/release.v1   1      148m
+secret/sh.helm.release.v1.protean-vault.v1                  helm.sh/release.v1   1      142m
+
+NAME                                                SECRETS   AGE
+serviceaccount/cert-manager                         0         148m
+serviceaccount/cert-manager-approver-policy         0         149m
+serviceaccount/cert-manager-cainjector              0         148m
+serviceaccount/cert-manager-webhook                 0         148m
+serviceaccount/configure-vault                      0         142m
+serviceaccount/default                              0         150m
+serviceaccount/kubevault-operator                   0         142m
+serviceaccount/protean-vault-agent                  0         142m
+serviceaccount/protean-vault-agent-agent-injector   0         142m
+
+NAME                                             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/cert-manager                             ClusterIP   10.210.54.4     <none>        9402/TCP   148m
+service/cert-manager-approver-policy             ClusterIP   10.210.56.102   <none>        443/TCP    149m
+service/cert-manager-approver-policy-metrics     ClusterIP   10.210.49.110   <none>        9402/TCP   149m
+service/cert-manager-webhook                     ClusterIP   10.210.63.121   <none>        443/TCP    148m
+service/kubevault-operator                       ClusterIP   10.210.63.60    <none>        8080/TCP   142m
+service/protean-vault-agent-agent-injector-svc   ClusterIP   10.210.43.200   <none>        443/TCP    142m
+
+NAME                                                      READY   STATUS    RESTARTS      AGE
+pod/cert-manager-9447d958d-j7l9d                          1/1     Running   0             148m
+pod/cert-manager-approver-policy-6ddcbf5568-9jtc4         1/1     Running   0             149m
+pod/cert-manager-cainjector-6f6847c7d5-k995t              1/1     Running   0             148m
+pod/cert-manager-webhook-b58854dd9-dd7gb                  1/1     Running   0             148m
+pod/configure-vault-jqz7g                                 1/1     Running   4 (17m ago)   142m
+pod/kubevault-operator-d4f567d9f-hp49h                    1/1     Running   0             7m6s
+pod/protean-vault-agent-agent-injector-5b8c698459-gn4k9   1/1     Running   0             142m
+
+NAME                                                                  CREATED AT
+role.rbac.authorization.k8s.io/cert-manager-approver-policy           2025-04-24T09:38:36Z
+role.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving   2025-04-24T09:40:21Z
+
+NAME                                                                         ROLE                                        AGE
+rolebinding.rbac.authorization.k8s.io/cert-manager-approver-policy           Role/cert-manager-approver-policy           149m
+rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving   Role/cert-manager-webhook:dynamic-serving   148m
+
+NAME                                                               STATUS   AGE
+vaultpolicy.policy.kubevault.com/cert-mgr-pki-ldap-policy                   142m
+vaultpolicy.policy.kubevault.com/cert-mgr-pki-logging-policy                142m
+vaultpolicy.policy.kubevault.com/cert-mgr-pki-monitoring-policy             142m
+vaultpolicy.policy.kubevault.com/cert-mgr-pki-servicemesh-policy            142m
+vaultpolicy.policy.kubevault.com/protean-pki                                142m
+
+NAME                                                      STATUS   AGE
+vaultpolicybinding.policy.kubevault.com/k8s-ldap                   142m
+vaultpolicybinding.policy.kubevault.com/k8s-logging                142m
+vaultpolicybinding.policy.kubevault.com/k8s-monitoring             142m
+vaultpolicybinding.policy.kubevault.com/k8s-servicemesh            142m
+vaultpolicybinding.policy.kubevault.com/protean-pki                142m

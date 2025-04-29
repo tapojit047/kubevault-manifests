@@ -1,0 +1,614 @@
+I0424 09:55:54.286327       1 log.go:245] FLAG: --add-dir-header="false"
+I0424 09:55:54.286442       1 log.go:245] FLAG: --alsologtostderr="false"
+I0424 09:55:54.286451       1 log.go:245] FLAG: --burst="1000000"
+I0424 09:55:54.286458       1 log.go:245] FLAG: --bypass-validating-webhook-xray="false"
+I0424 09:55:54.286464       1 log.go:245] FLAG: --cluster-name=""
+I0424 09:55:54.286470       1 log.go:245] FLAG: --default-seccomp-profile-type="RuntimeDefault"
+I0424 09:55:54.287370       1 log.go:245] FLAG: --docker-registry="kubevault"
+I0424 09:55:54.287376       1 log.go:245] FLAG: --gen-rotate-tls-recommendation-before-expiry-day="0"
+I0424 09:55:54.287382       1 log.go:245] FLAG: --gen-rotate-tls-recommendation-before-expiry-month="1"
+I0424 09:55:54.287386       1 log.go:245] FLAG: --gen-rotate-tls-recommendation-before-expiry-year="0"
+I0424 09:55:54.287392       1 log.go:245] FLAG: --health-probe-bind-address=":8081"
+I0424 09:55:54.287396       1 log.go:245] FLAG: --help="false"
+I0424 09:55:54.287401       1 log.go:245] FLAG: --kubeconfig=""
+I0424 09:55:54.287406       1 log.go:245] FLAG: --leader-elect="false"
+I0424 09:55:54.287412       1 log.go:245] FLAG: --license-file="/var/run/secrets/appscode/license/key.txt"
+I0424 09:55:54.287418       1 log.go:245] FLAG: --log-backtrace-at=":0"
+I0424 09:55:54.287423       1 log.go:245] FLAG: --log-dir=""
+I0424 09:55:54.287427       1 log.go:245] FLAG: --log-file=""
+I0424 09:55:54.287432       1 log.go:245] FLAG: --log-file-max-size="1800"
+I0424 09:55:54.287438       1 log.go:245] FLAG: --log-flush-frequency="5s"
+I0424 09:55:54.287446       1 log.go:245] FLAG: --logtostderr="true"
+I0424 09:55:54.287456       1 log.go:245] FLAG: --master=""
+I0424 09:55:54.287464       1 log.go:245] FLAG: --metrics-bind-address=":8080"
+I0424 09:55:54.287472       1 log.go:245] FLAG: --one-output="false"
+I0424 09:55:54.287481       1 log.go:245] FLAG: --qps="1e+06"
+I0424 09:55:54.287490       1 log.go:245] FLAG: --recommendation-resync-period="1h0m0s"
+I0424 09:55:54.287521       1 log.go:245] FLAG: --resync-period="10m0s"
+I0424 09:55:54.287536       1 log.go:245] FLAG: --skip-headers="false"
+I0424 09:55:54.287545       1 log.go:245] FLAG: --skip-log-headers="false"
+I0424 09:55:54.287553       1 log.go:245] FLAG: --stderrthreshold="2"
+I0424 09:55:54.287562       1 log.go:245] FLAG: --use-kubeapiserver-fqdn-for-aks="true"
+I0424 09:55:54.287577       1 log.go:245] FLAG: --v="3"
+I0424 09:55:54.287587       1 log.go:245] FLAG: --vmodule=""
+I0424 09:55:54.288530       1 operator.go:38] Starting operator version v0.20.0+3fec96d43c75bf82d04b78becda5f0e924482eb9 ...
+W0424 09:55:54.288569       1 client_config.go:659] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0424 09:55:54.307305       1 lib.go:234] Kubernetes version: &version.Info{Major:"1", Minor:"30", GitVersion:"v1.30.4", GitCommit:"a51b3b711150f57ffc1f526a640ec058514ed596", GitTreeState:"clean", BuildDate:"2024-08-14T18:57:35Z", GoVersion:"go1.22.5", Compiler:"gc", Platform:"linux/amd64"}
+I0424 09:55:54.334549       1 controller.go:207] ensuring CRD registration
+I0424 09:55:57.772777       1 lib.go:292] Successfully verified license! Valid until: 16 May 25 14:50 UTC
+I0424 09:55:57.777065       1 operator.go:311] "msg"="starting manager" "logger"="setup"
+I0424 09:55:57.777190       1 server.go:208] "msg"="Starting metrics server" "logger"="controller-runtime.metrics"
+I0424 09:55:57.777263       1 server.go:83] "msg"="starting server" "addr"="[::]:8081" "name"="health probe"
+I0424 09:55:57.777283       1 server.go:247] "msg"="Serving metrics server" "bindAddress"=":8080" "logger"="controller-runtime.metrics" "secure"=false
+I0424 09:55:57.777353       1 controller.go:241] Starting Vault controller
+I0424 09:55:57.777534       1 reflector.go:296] Starting reflector *v1alpha1.PostgresRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777547       1 controller.go:173] "msg"="Starting EventSource" "controller"="vaultserver" "controllerGroup"="kubevault.com" "controllerKind"="VaultServer" "source"="kind source: *v1alpha2.VaultServer"
+I0424 09:55:57.777565       1 reflector.go:296] Starting reflector *v1alpha1.ElasticsearchRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777576       1 controller.go:181] "msg"="Starting Controller" "controller"="vaultserver" "controllerGroup"="kubevault.com" "controllerKind"="VaultServer"
+I0424 09:55:57.777579       1 reflector.go:332] Listing and watching *v1alpha1.ElasticsearchRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777590       1 reflector.go:296] Starting reflector *v1alpha1.VaultPolicy (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777604       1 reflector.go:296] Starting reflector *v1.StatefulSet (10m0s) from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.777614       1 reflector.go:332] Listing and watching *v1.StatefulSet from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.777638       1 reflector.go:296] Starting reflector *v1alpha1.AWSRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777647       1 reflector.go:332] Listing and watching *v1alpha1.AWSRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777757       1 reflector.go:296] Starting reflector *v1alpha1.GCPRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777836       1 reflector.go:296] Starting reflector *v1alpha1.MongoDBRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777860       1 reflector.go:332] Listing and watching *v1alpha1.MongoDBRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777888       1 reflector.go:296] Starting reflector *v1.Node (10m0s) from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.777904       1 reflector.go:332] Listing and watching *v1.Node from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.777608       1 reflector.go:332] Listing and watching *v1alpha1.VaultPolicy from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777949       1 reflector.go:296] Starting reflector *v1alpha1.VaultPolicyBinding (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777960       1 reflector.go:332] Listing and watching *v1alpha1.VaultPolicyBinding from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777888       1 reflector.go:296] Starting reflector *v1.CustomResourceDefinition (10m0s) from k8s.io/apiextensions-apiserver/pkg/client/informers/externalversions/factory.go:141
+I0424 09:55:57.778030       1 reflector.go:332] Listing and watching *v1.CustomResourceDefinition from k8s.io/apiextensions-apiserver/pkg/client/informers/externalversions/factory.go:141
+I0424 09:55:57.777795       1 reflector.go:296] Starting reflector *v1alpha1.MySQLRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778056       1 reflector.go:332] Listing and watching *v1alpha1.MySQLRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778132       1 reflector.go:296] Starting reflector *v1alpha1.AzureRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778146       1 reflector.go:332] Listing and watching *v1alpha1.AzureRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778143       1 reflector.go:296] Starting reflector *v1alpha1.SecretRoleBinding (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778161       1 reflector.go:332] Listing and watching *v1alpha1.SecretRoleBinding from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777846       1 reflector.go:332] Listing and watching *v1alpha1.GCPRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777846       1 reflector.go:296] Starting reflector *v1.Secret (10m0s) from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.778203       1 reflector.go:332] Listing and watching *v1.Secret from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.778029       1 reflector.go:296] Starting reflector *v1alpha1.RedisRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778229       1 reflector.go:332] Listing and watching *v1alpha1.RedisRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778259       1 reflector.go:296] Starting reflector *v1alpha1.SecretEngine (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778269       1 reflector.go:332] Listing and watching *v1alpha1.SecretEngine from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778316       1 reflector.go:296] Starting reflector *v1alpha1.VaultOpsRequest (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778446       1 reflector.go:332] Listing and watching *v1alpha1.VaultOpsRequest from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778317       1 reflector.go:296] Starting reflector *v1alpha1.PKIRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778545       1 reflector.go:332] Listing and watching *v1alpha1.PKIRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.777556       1 reflector.go:332] Listing and watching *v1alpha1.PostgresRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778340       1 reflector.go:296] Starting reflector *v1alpha1.SecretAccessRequest (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778750       1 reflector.go:332] Listing and watching *v1alpha1.SecretAccessRequest from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778395       1 reflector.go:296] Starting reflector *v1alpha2.VaultServer (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778834       1 reflector.go:332] Listing and watching *v1alpha2.VaultServer from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778407       1 reflector.go:296] Starting reflector *v1alpha1.MariaDBRole (10m0s) from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.778885       1 reflector.go:332] Listing and watching *v1alpha1.MariaDBRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.779595       1 reflector.go:359] Caches populated for *v1alpha1.AWSRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.779855       1 reflector.go:296] Starting reflector *v1alpha2.VaultServer (9h27m59.897499434s) from sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:106
+I0424 09:55:57.779870       1 reflector.go:332] Listing and watching *v1alpha2.VaultServer from sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:106
+I0424 09:55:57.781847       1 reflector.go:359] Caches populated for *v1alpha1.ElasticsearchRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.781851       1 reflector.go:359] Caches populated for *v1alpha1.AzureRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.781978       1 reflector.go:359] Caches populated for *v1alpha1.MongoDBRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.782049       1 reflector.go:359] Caches populated for *v1alpha1.GCPRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.784377       1 reflector.go:359] Caches populated for *v1alpha1.VaultPolicyBinding from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.785065       1 reflector.go:359] Caches populated for *v1alpha1.VaultOpsRequest from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.785226       1 reflector.go:359] Caches populated for *v1alpha1.SecretEngine from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.785383       1 reflector.go:359] Caches populated for *v1alpha1.PKIRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.785533       1 reflector.go:359] Caches populated for *v1alpha2.VaultServer from sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:106
+I0424 09:55:57.785615       1 reflector.go:359] Caches populated for *v1alpha1.VaultPolicy from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.786650       1 reflector.go:359] Caches populated for *v1.StatefulSet from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.787521       1 reflector.go:359] Caches populated for *v1alpha1.MySQLRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.787841       1 reflector.go:359] Caches populated for *v1alpha1.PostgresRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.788049       1 reflector.go:359] Caches populated for *v1alpha1.RedisRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.789211       1 reflector.go:359] Caches populated for *v1alpha2.VaultServer from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.789217       1 reflector.go:359] Caches populated for *v1alpha1.SecretAccessRequest from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.790396       1 reflector.go:359] Caches populated for *v1.Node from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:57.791666       1 reflector.go:359] Caches populated for *v1alpha1.MariaDBRole from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.791891       1 reflector.go:359] Caches populated for *v1alpha1.SecretRoleBinding from kubevault.dev/apimachinery/client/informers/externalversions/factory.go:146
+I0424 09:55:57.880370       1 controller.go:215] "msg"="Starting workers" "controller"="vaultserver" "controllerGroup"="kubevault.com" "controllerKind"="VaultServer" "worker count"=1
+I0424 09:55:57.880491       1 reconcile.go:51] Get event for: k8s-pki/vault
+I0424 09:55:57.932365       1 reflector.go:359] Caches populated for *v1.Secret from k8s.io/client-go/informers/factory.go:160
+I0424 09:55:58.272964       1 reflector.go:359] Caches populated for *v1.CustomResourceDefinition from k8s.io/apiextensions-apiserver/pkg/client/informers/externalversions/factory.go:141
+I0424 09:55:58.273324       1 reflector.go:296] Starting reflector *v1.Issuer (10m0s) from github.com/cert-manager/cert-manager/pkg/client/informers/externalversions/factory.go:142
+I0424 09:55:58.273351       1 reflector.go:332] Listing and watching *v1.Issuer from github.com/cert-manager/cert-manager/pkg/client/informers/externalversions/factory.go:142
+I0424 09:55:58.273303       1 reflector.go:296] Starting reflector *v1.ClusterIssuer (10m0s) from github.com/cert-manager/cert-manager/pkg/client/informers/externalversions/factory.go:142
+I0424 09:55:58.274277       1 reflector.go:332] Listing and watching *v1.ClusterIssuer from github.com/cert-manager/cert-manager/pkg/client/informers/externalversions/factory.go:142
+I0424 09:55:58.276328       1 reflector.go:359] Caches populated for *v1.ClusterIssuer from github.com/cert-manager/cert-manager/pkg/client/informers/externalversions/factory.go:142
+I0424 09:55:58.276354       1 reflector.go:359] Caches populated for *v1.Issuer from github.com/cert-manager/cert-manager/pkg/client/informers/externalversions/factory.go:142
+I0424 09:55:58.278644       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 09:55:58.278654       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+I0424 09:55:58.278659       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+I0424 09:55:58.278687       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 09:55:58.278687       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+E0424 09:55:58.280992       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281016       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281040       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 09:55:58.280996       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281136       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281180       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+E0424 09:55:58.280995       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281216       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281250       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 09:55:58.281079       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281358       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.281383       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 09:55:58.282741       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.282761       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.282787       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 09:55:58.282836       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.282881       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.282916       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 09:55:58.283246       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.283263       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.283754       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.283772       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.284550       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.284570       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.284866       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.284886       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.286059       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 09:55:58.286198       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+I0424 09:55:58.286256       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 09:55:58.286631       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+E0424 09:55:58.287877       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.287895       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.287958       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 09:55:58.287893       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.288008       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.288034       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+E0424 09:55:58.288241       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.288257       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.288314       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.288338       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.288370       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+I0424 09:55:58.289298       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 09:55:58.289440       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.289462       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.289466       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.289479       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.289744       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 09:55:58.289839       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.289857       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.289937       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 09:55:58.290986       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.291006       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.291211       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.291229       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.291413       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.291434       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.298661       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 09:55:58.298691       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 09:55:58.298676       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+I0424 09:55:58.298691       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+E0424 09:55:58.301385       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301478       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301510       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 09:55:58.301386       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301543       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301587       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+E0424 09:55:58.301387       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301668       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301689       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 09:55:58.301395       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301756       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.301775       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 09:55:58.303681       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.303710       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.303744       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 09:55:58.303771       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.303787       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.303785       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.303805       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.303809       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 09:55:58.304134       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.304156       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.305867       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.305895       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.305870       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.305914       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.322058       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 09:55:58.322086       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 09:55:58.322064       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 09:55:58.322099       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+E0424 09:55:58.325176       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.325249       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.325284       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.325306       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.325292       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 09:55:58.325327       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.325348       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.325333       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 09:55:58.325176       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.325405       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.325439       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+I0424 09:55:58.325382       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 09:55:58.327520       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.327546       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.327573       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 09:55:58.327670       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.327684       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.327684       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.327705       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.327527       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.327751       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.327708       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 09:55:58.329311       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.329330       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.329480       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.329500       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.365657       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 09:55:58.365704       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+I0424 09:55:58.365657       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 09:55:58.365677       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+E0424 09:55:58.368453       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.368477       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.368455       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.368499       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.368525       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+I0424 09:55:58.368502       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 09:55:58.368957       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.368973       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.369001       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 09:55:58.369310       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.369325       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.369346       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 09:55:58.370401       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.370431       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.370462       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 09:55:58.370507       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.370525       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.370845       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.370860       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.370884       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 09:55:58.371576       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.371597       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.372586       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.372607       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.372595       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.372625       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.448950       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 09:55:58.449029       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 09:55:58.448965       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+I0424 09:55:58.450082       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+E0424 09:55:58.451974       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.452009       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.452018       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-logging-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.452047       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 09:55:58.452076       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.452108       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.451974       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.452123       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.451985       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.452134       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.453081       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-ldap-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.453127       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+I0424 09:55:58.453144       1 worker.go:110] Dropping key "k8s-pki/k8s-logging" out of the queue: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.453154       1 worker.go:110] Dropping key "k8s-pki/k8s-ldap" out of the queue: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.453193       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+I0424 09:55:58.453204       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+E0424 09:55:58.453746       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.453766       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.453774       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-servicemesh-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.453791       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 09:55:58.454836       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.454849       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.454858       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.454865       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.454865       1 worker.go:110] Dropping key "k8s-pki/k8s-servicemesh" out of the queue: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.454850       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.454885       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.454888       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 09:55:58.455174       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.455199       1 worker.go:108] for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.456107       1 worker.go:110] Dropping key "k8s-pki/protean-pki" out of the queue: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.456126       1 worker.go:110] Dropping key "k8s-pki/k8s-monitoring" out of the queue: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.456119       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-monitoring-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.456477       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:55:58.456494       1 worker.go:108] for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 09:55:58.456500       1 worker.go:110] Dropping key "k8s-pki/protean-pki" out of the queue: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 09:56:26.288861       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 09:56:26.288910       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:56:26.288927       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:56:26.294261       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 09:56:54.071473       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 09:56:54.071518       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:56:54.071532       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:56:54.081912       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 09:57:21.777481       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 09:57:21.777531       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:57:21.777547       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:57:21.798538       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 09:57:49.955438       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 09:57:49.955507       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:57:49.955525       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:57:49.996173       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 09:58:18.045865       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 09:58:18.045907       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:58:18.045922       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:58:18.126381       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 09:58:45.478600       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 09:58:45.478650       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+E0424 09:58:45.478667       1 worker.go:108] for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 09:58:45.478675       1 worker.go:110] Dropping key "k8s-pki/vault" out of the queue: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:04:53.726834       1 reconcile.go:51] Get event for: k8s-pki/vault
+I0424 10:04:53.727200       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:05:21.485272       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:05:21.485324       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:05:21.485341       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:05:21.490677       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:05:49.612553       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:05:49.612591       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:05:49.612605       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:05:49.622956       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+I0424 10:05:57.785382       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 10:05:57.785382       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+I0424 10:05:57.785872       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 10:05:57.785879       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+E0424 10:05:57.788382       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.788409       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.788420       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.788436       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.788458       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+I0424 10:05:57.788471       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 10:05:57.788474       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.788629       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.788650       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.788730       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.788766       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+I0424 10:05:57.788689       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 10:05:57.790004       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.790035       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.790066       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 10:05:57.790507       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.790527       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.790547       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+E0424 10:05:57.790545       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.790565       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.790839       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.790853       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.791703       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.791730       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.792138       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.792164       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.794077       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 10:05:57.794117       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+I0424 10:05:57.794127       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 10:05:57.794151       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+E0424 10:05:57.796073       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796108       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796136       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 10:05:57.796604       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796622       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796642       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 10:05:57.796691       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796707       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796723       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 10:05:57.796841       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796879       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.796907       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 10:05:57.797885       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.797912       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.797940       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+E0424 10:05:57.798984       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.799039       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.798999       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.799072       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.799116       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.799133       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.799136       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 10:05:57.799747       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.799768       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.800740       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.800757       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.806888       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 10:05:57.806909       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 10:05:57.806923       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 10:05:57.807069       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+E0424 10:05:57.809666       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.809676       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.809693       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.809692       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.809665       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.809667       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.809729       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.809719       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+I0424 10:05:57.809719       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+I0424 10:05:57.809758       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+I0424 10:05:57.809733       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.809860       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 10:05:57.811732       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.811751       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.811774       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 10:05:57.811835       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.811856       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.811877       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+E0424 10:05:57.811876       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.811889       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.811911       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.811892       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.813537       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.813553       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.813573       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.813591       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.830738       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 10:05:57.830796       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+I0424 10:05:57.830819       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 10:05:57.830746       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+E0424 10:05:57.833313       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.833338       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.833358       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 10:05:57.833313       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.833375       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.833400       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 10:05:57.833546       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.833560       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.833580       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 10:05:57.834129       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.834152       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.834184       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 10:05:57.835013       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.835031       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.835061       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 10:05:57.835959       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.835987       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.836016       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+E0424 10:05:57.836337       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.836358       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.836353       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.836376       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.836707       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.836751       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.837740       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.837767       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.873933       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 10:05:57.873974       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 10:05:57.873987       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 10:05:57.874315       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+E0424 10:05:57.876676       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.876699       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-ldap-policy: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.876726       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 10:05:57.876934       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.876950       1 worker.go:97] Error syncing key k8s-pki/k8s-logging: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.877001       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+E0424 10:05:57.877199       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.877273       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-logging-policy: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.877311       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 10:05:57.877370       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.877389       1 worker.go:97] Error syncing key k8s-pki/k8s-monitoring: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.877439       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+E0424 10:05:57.878407       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.878434       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-servicemesh-policy: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.878464       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 10:05:57.879158       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.879176       1 worker.go:97] Error syncing key k8s-pki/k8s-servicemesh: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.879203       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+E0424 10:05:57.879417       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.879436       1 worker.go:97] Error syncing key k8s-pki/cert-mgr-pki-monitoring-policy: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.879467       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.879526       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.879881       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.879896       1 worker.go:97] Error syncing key k8s-pki/protean-pki: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.880762       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.880779       1 worker.go:97] Error syncing key k8s-pki/k8s-ldap: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.957192       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy
+I0424 10:05:57.957226       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-logging
+I0424 10:05:57.957387       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy
+I0424 10:05:57.957486       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-monitoring
+E0424 10:05:57.959949       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-logging-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.959990       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.960000       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-logging-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-logging-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.960019       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy
+E0424 10:05:57.960157       1 worker.go:93] Failed to process key k8s-pki/k8s-monitoring. Reason: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.960184       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.960207       1 worker.go:93] Failed to process key k8s-pki/k8s-logging. Reason: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.960235       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.960264       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-ldap-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.960275       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.961201       1 worker.go:110] Dropping key "k8s-pki/k8s-monitoring" out of the queue: for VaultPolicyBinding k8s-pki/k8s-monitoring: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.961221       1 worker.go:110] Dropping key "k8s-pki/k8s-logging" out of the queue: for VaultPolicyBinding k8s-pki/k8s-logging: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.961239       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-servicemesh
+I0424 10:05:57.961271       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/protean-pki
+I0424 10:05:57.961269       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-ldap-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-ldap-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.961500       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy
+E0424 10:05:57.961873       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-servicemesh-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.961897       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.961905       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-servicemesh-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-servicemesh-policy: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.961925       1 vault_policy.go:65] Sync/Add/Update for VaultPolicy k8s-pki/protean-pki
+E0424 10:05:57.963628       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.963653       1 worker.go:108] for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.963661       1 worker.go:110] Dropping key "k8s-pki/protean-pki" out of the queue: for VaultPolicyBinding k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.963672       1 worker.go:93] Failed to process key k8s-pki/k8s-servicemesh. Reason: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.963707       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.963682       1 vault_policy_binding.go:65] Sync/Add/Update for VaultPolicyBinding k8s-pki/k8s-ldap
+E0424 10:05:57.964260       1 worker.go:93] Failed to process key k8s-pki/cert-mgr-pki-monitoring-policy. Reason: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.964278       1 worker.go:108] for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.964283       1 worker.go:93] Failed to process key k8s-pki/protean-pki. Reason: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.964304       1 worker.go:108] for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.965292       1 worker.go:110] Dropping key "k8s-pki/k8s-servicemesh" out of the queue: for VaultPolicyBinding k8s-pki/k8s-servicemesh: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.965323       1 worker.go:110] Dropping key "k8s-pki/protean-pki" out of the queue: for VaultPolicy k8s-pki/protean-pki: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.965381       1 worker.go:110] Dropping key "k8s-pki/cert-mgr-pki-monitoring-policy" out of the queue: for VaultPolicy k8s-pki/cert-mgr-pki-monitoring-policy: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.965792       1 worker.go:93] Failed to process key k8s-pki/k8s-ldap. Reason: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:05:57.965812       1 worker.go:108] for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+I0424 10:05:57.965824       1 worker.go:110] Dropping key "k8s-pki/k8s-ldap" out of the queue: for VaultPolicyBinding k8s-pki/k8s-ldap: appbindings.appcatalog.appscode.com "vault" not found
+E0424 10:06:17.236873       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:06:17.236914       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:06:17.236929       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:06:17.237002       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:06:44.903013       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:06:44.903059       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:06:44.903078       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:06:44.903205       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:07:12.362322       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:07:12.362363       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:07:12.362376       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:07:12.362431       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:07:39.815764       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:07:39.815812       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:07:39.815831       1 worker.go:108] for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:07:39.815841       1 worker.go:110] Dropping key "k8s-pki/vault" out of the queue: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:07:39.815895       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:08:08.066659       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:08:08.066717       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:08:08.066730       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:08:08.072039       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+I0424 10:08:31.059302       1 reconcile.go:51] Get event for: k8s-pki/vault
+E0424 10:08:35.903598       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:08:35.903643       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:08:35.903655       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:08:35.903710       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+I0424 10:08:35.903718       1 vaultservers.go:197] Vault Server Termination Policy Not Set/Found for k8s-pki/vault
+I0424 10:08:35.906587       1 vaultserver.go:97] Patching VaultServer k8s-pki/vault with {"metadata":{"finalizers":null}}.
+I0424 10:08:35.917042       1 reconcile.go:51] Get event for: k8s-pki/vault
+I0424 10:08:35.917112       1 reconcile.go:55] Vault Server vault in namespace k8s-pki doesn't exist anymore
+W0424 10:08:35.917243       1 vaultservers.go:101] VaultServer k8s-pki/vault does not exist anymore
+I0424 10:08:35.918800       1 reflector.go:296] Starting reflector *v1alpha1.Recommendation (9h42m38.143560798s) from sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:106
+I0424 10:08:35.918822       1 reflector.go:332] Listing and watching *v1alpha1.Recommendation from sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:106
+I0424 10:08:35.920601       1 reflector.go:359] Caches populated for *v1alpha1.Recommendation from sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:106
+I0424 10:08:49.031535       1 reconcile.go:51] Get event for: k8s-pki/vault
+I0424 10:08:49.031719       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+I0424 10:08:49.032265       1 vaultserver.go:97] Patching VaultServer k8s-pki/vault with {"metadata":{"finalizers":["kubevault.com"]}}.
+W0424 10:08:49.043831       1 warnings.go:70] metadata.finalizers: "kubevault.com": prefer a domain-qualified finalizer name to avoid accidental conflicts with other finalizer writers
+I0424 10:08:49.044222       1 reconcile.go:51] Get event for: k8s-pki/vault
+E0424 10:09:16.959827       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:09:16.959890       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:09:16.959908       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:09:16.959989       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:09:44.350805       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:09:44.350856       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:09:44.350870       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:09:44.350927       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:10:11.830775       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:10:11.830826       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:10:11.830843       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:10:11.830910       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:10:39.346188       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:10:39.346239       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:10:39.346256       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:10:39.346336       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:11:06.850116       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:11:06.850156       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:11:06.850172       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:11:06.850232       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:11:34.482055       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:11:34.482152       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:11:34.482176       1 worker.go:108] for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:11:34.482187       1 worker.go:110] Dropping key "k8s-pki/vault" out of the queue: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:11:34.482268       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:12:02.265168       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:12:02.265215       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:12:02.265229       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:12:02.270665       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:12:29.850551       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:12:29.850594       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:12:29.850608       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:12:29.860970       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:12:57.410475       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:12:57.410522       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:12:57.410536       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:12:57.430900       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault
+E0424 10:13:25.682744       1 vaultservers.go:682] Failed to update status for k8s-pki/vault with client rate limiter Wait returned an error: context deadline exceeded
+E0424 10:13:25.682812       1 worker.go:93] Failed to process key k8s-pki/vault. Reason: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:13:25.682830       1 worker.go:97] Error syncing key k8s-pki/vault: for VaultServer k8s-pki/vault: client rate limiter Wait returned an error: context deadline exceeded
+I0424 10:13:25.723285       1 vaultservers.go:119] Sync/Add/Update for VaultServer k8s-pki/vault

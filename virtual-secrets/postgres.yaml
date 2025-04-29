@@ -4,7 +4,7 @@ metadata:
   name: pg-demo
   namespace: demo
 spec:
- authSecret:
+  authSecret:
    apiGroup: "virtual-secrets.dev"
    secretStoreName: vault
   replicas: 3
